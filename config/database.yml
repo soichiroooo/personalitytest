@@ -1,27 +1,23 @@
 default: &default
   encoding: utf8
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  adapter: mysql2
+  username: root
 
 development:
   <<: *default
-  adapter: mysql2
-  username: root
+  database: personalitytest_development
   password:
   host: localhost
-  database: personalitytest_development
 
 test:
   <<: *default
-  adapter: mysql2
-  username: root
+  database: personalitytest_test
   password:
   host: localhost
-  database: personalitytest_test
 
 production:
   <<: *default
-  adapter: mysql2
   database: personalitytest_production
-  username: root
   password: <%= ENV['DATABASE_PASSWORD'] %>
   socket: /var/lib/mysql/mysql.sock
