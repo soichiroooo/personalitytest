@@ -31,7 +31,31 @@ class Item < ActiveHash::Base
     { id: 29, name: '溜まっている家事をこなし、読書タイム' },
     { id: 30, name: '外出して何か楽しいことをする' },
     { id: 31, name: 'ボランティアしたり、創造的なことをする' },
-    { id: 32, name: '自分へのご褒美、と称して、贅沢なことをする' }
+    { id: 32, name: '自分へのご褒美、と称して、贅沢なことをする' },
+    { id: 33, name: '衝動的' },
+    { id: 34, name: '芸術的' },
+    { id: 35, name: '几帳面' },
+    { id: 36, name: '印象的' },
+    { id: 37, name: 'お洒落' },
+    { id: 38, name: '対抗的' },
+    { id: 39, name: '保守的' },
+    { id: 40, name: '突発的' },
+    { id: 41, name: '支配的' },
+    { id: 42, name: '神経質' },
+    { id: 43, name: '論理的' },
+    { id: 44, name: '哲学的' },
+    { id: 45, name: '内向的' },
+    { id: 46, name: '外交的' },
+    { id: 47, name: '時間厳守' },
+    { id: 48, name: '楽観的' },
+    { id: 49, name: '思慮深い' },
+    { id: 50, name: '自己主張が強い' },
+    { id: 51, name: '決定的' },
+    { id: 52, name: '繊細' },
+    { id: 53, name: 'ユーモアがある' },
+    { id: 54, name: '質素' },
+    { id: 55, name: '誠実' },
+    { id: 56, name: '動機が高い' }
   ]
 
   include ActiveHash::Associations
