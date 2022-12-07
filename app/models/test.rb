@@ -1,5 +1,10 @@
 class Test < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
+  with_options presence:true do
+    validates :item
+    validates :question
+  end
+  
   belongs_to :item
-  validates :item, presence: true, numericality: { other_than: 0 }
+  belongs_to :question
 end
