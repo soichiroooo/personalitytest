@@ -1,4 +1,4 @@
-class Question1 < ActiveHash::Base
+class Question < ActiveHash::Base
   self.data = [
     { id: 1, name: 'よく知らないリーダーとビジネスのプロジェクトを一緒に行うときに、私は以下の傾向があります:' },
     { id: 2, name: '社交的なイベントに参加してる時に、私の物腰は：' },
