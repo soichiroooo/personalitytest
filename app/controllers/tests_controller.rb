@@ -1,14 +1,15 @@
 class TestsController < ApplicationController
-  def index
-  end
-  
   def new
+    @test = Test.new
   end
 
   def create
+    # (1..56).each do |i|
+    #   params["item#{i}"] = params["item#{i}"].to_i
+    # end
     @test = Test.new(test_params)
-    if @test.valid?
-      @test.save
+    if @test.save
+      redirect_to root_path
     else
       render :new
     end

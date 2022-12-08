@@ -1,62 +1,62 @@
 class CreateTests < ActiveRecord::Migration[6.0]
   def change
     create_table :tests do |t|
-      t.integer :item1,        null: false
-      t.integer :item2,        null: false
-      t.integer :item3,        null: false
-      t.integer :item4,        null: false
-      t.integer :item5,        null: false
-      t.integer :item6,        null: false
-      t.integer :item7,        null: false
-      t.integer :item8,        null: false
-      t.integer :item9,        null: false
-      t.integer :item10,       null: false
-      t.integer :item11,       null: false
-      t.integer :item12,       null: false
-      t.integer :item13,       null: false
-      t.integer :item14,       null: false
-      t.integer :item15,       null: false
-      t.integer :item16,       null: false
-      t.integer :item17,       null: false
-      t.integer :item18,       null: false
-      t.integer :item19,       null: false
-      t.integer :item20,       null: false
-      t.integer :item21,       null: false
-      t.integer :item22,       null: false
-      t.integer :item23,       null: false
-      t.integer :item24,       null: false
-      t.integer :item25,       null: false
-      t.integer :item26,       null: false
-      t.integer :item27,       null: false
-      t.integer :item28,       null: false
-      t.integer :item29,       null: false
-      t.integer :item30,       null: false
-      t.integer :item31,       null: false
-      t.integer :item32,       null: false
-      t.integer :item33,       null: false
-      t.integer :item34,       null: false
-      t.integer :item35,       null: false
-      t.integer :item36,       null: false
-      t.integer :item37,       null: false
-      t.integer :item38,       null: false
-      t.integer :item39,       null: false
-      t.integer :item40,       null: false
-      t.integer :item41,       null: false
-      t.integer :item42,       null: false
-      t.integer :item43,       null: false
-      t.integer :item44,       null: false
-      t.integer :item45,       null: false
-      t.integer :item46,       null: false
-      t.integer :item47,       null: false
-      t.integer :item48,       null: false
-      t.integer :item49,       null: false
-      t.integer :item50,       null: false
-      t.integer :item51,       null: false
-      t.integer :item52,       null: false
-      t.integer :item53,       null: false
-      t.integer :item54,       null: false
-      t.integer :item55,       null: false
-      t.integer :item56,       null: false
+      t.string :item1        
+      t.string :item2        
+      t.string :item3        
+      t.string :item4        
+      t.string :item5        
+      t.string :item6        
+      t.string :item7        
+      t.string :item8        
+      t.string :item9        
+      t.string :item10       
+      t.string :item11       
+      t.string :item12       
+      t.string :item13       
+      t.string :item14       
+      t.string :item15       
+      t.string :item16       
+      t.string :item17       
+      t.string :item18       
+      t.string :item19       
+      t.string :item20       
+      t.string :item21       
+      t.string :item22       
+      t.string :item23       
+      t.string :item24       
+      t.string :item25       
+      t.string :item26       
+      t.string :item27       
+      t.string :item28       
+      t.string :item29       
+      t.string :item30       
+      t.string :item31       
+      t.string :item32       
+      t.string :item33       
+      t.string :item34       
+      t.string :item35       
+      t.string :item36       
+      t.string :item37       
+      t.string :item38       
+      t.string :item39       
+      t.string :item40       
+      t.string :item41       
+      t.string :item42       
+      t.string :item43       
+      t.string :item44       
+      t.string :item45       
+      t.string :item46       
+      t.string :item47       
+      t.string :item48       
+      t.string :item49       
+      t.string :item50       
+      t.string :item51       
+      t.string :item52       
+      t.string :item53       
+      t.string :item54       
+      t.string :item55       
+      t.string :item56       
       t.timestamps
     end
   end
