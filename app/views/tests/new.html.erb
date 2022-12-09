@@ -1,35 +1,47 @@
 <h1>トップページ</h1>
-<%= form_with model:@test, url: tests_path, local: true do |f| %>
-<%# <%= render 'shared/error_messages', model: @test %>
-  
-    <% Question.all.each_with_index do |question,num| %>
-    <div class="test_item">
-      <div class="question">
-      <%= Question.find(num+1).name %>
-      </div>
-      <% (num*4+1..num*4+4).each do |i| %>
-        <div class="answer">
-          <div class="item_description">
-            <%= Item.find(i).name %>
-          </div>
-          <div class="radio_button">
-          あてはまる
-          <%= f.radio_button "item#{i}", 6, {:checked => true} %>
-          <%= f.radio_button "item#{i}", 4 %>
-          <%= f.radio_button "item#{i}", 2 %>
-          <%= f.radio_button "item#{i}", 0 %>
-          あてはまらない
-          </div>
-        </div>
-      <% end %>
-    </div>
-    <% end %>
 
+<%= render 'shared/error_messages', model: @test %>
+
+<%= form_with model:@test, url: tests_path, local: true do |f| %>
+
+  <%# 診断テスト前半部分 %>
+  <% Question.all.each_with_index do |question,num| %>
+  <div class="test_item">
+    <%# 診断テスト設問文 %>
+    <div class="question">
+      <%= Question.find(num+1).name %>
+    </div>
+    <%# 診断テスト設問文 %>
+    <%# /ラジオボタン %>
+    <table class="answer">
+      <tr>
+        <th></th>
+        <th>一番あてはまる</th>
+        <th>二番目にあてはまる</th>
+        <th>三番目にあてはまる</th>
+        <th>最もあてはまらない</th>
+      </tr>
+      <% (num*4+1..num*4+4).each do |i| %>
+        <tr class="item_description">
+          <th><%= Item.find(i).name %></th>
+          <td><%= f.radio_button "item#{i}", 6, {:checked => true} %></td>
+          <td><%= f.radio_button "item#{i}", 4 %></td>
+          <td><%= f.radio_button "item#{i}", 2 %></td>
+          <td><%= f.radio_button "item#{i}", 0 %></td>
+        </tr>
+      <% end %>
+    </table>
+    <%# /ラジオボタン %>
+  </div>
+  <% end %>
+  <%# /診断テスト前半部分 %>
+
+  <%# 診断テスト後半部分 %>
   <div class="test_item">
     <% (33..56).each_slice(2) do |nums| %>
       <div class="answer">
         <div class="item_description">
-          A:<%= Item.find(nums.at(0)).name %>
+          A: <%= Item.find(nums.at(0)).name %>
         </div>
         <div class="radio_button">
         <%= f.radio_button "item#{nums.at(0)}", 4, {:checked => true}%>
@@ -39,13 +51,17 @@
         <%= f.radio_button "item#{nums.at(0)}", 0 %>
         </div>
         <div class="item_description">
-          B:<%= Item.find(nums.at(1)).name %>
+          B: <%= Item.find(nums.at(1)).name %>
         </div>
       </div>
     <% end %>
   </div>
+  <%# /診断テスト後半部分 %>
+
+  <%# 送信ボタン %>
   <div class="send_btn">
     <%= f.submit "診断する" %>
   </div>
+  <%# /送信ボタン %>
 <% end %>
 
