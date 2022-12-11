@@ -24,16 +24,16 @@
       <% (num*4+1..num*4+4).each do |i| %>
         <tr class="item_description">
           <th><%= Item.find(i).name %></th>
-          <td class="button", data-num=<%= num %> data-val = 6>
+          <td class="button", id=<%= i %> data-val = 6>
             <%= f.radio_button "item#{i}", 6, {:checked => true} %>
           </td>
-          <td class="button", data-num=<%= num %> data-val = 4>
+          <td class="button", id=<%= i %> data-val = 4>
             <%= f.radio_button "item#{i}", 4 %>
           </td>
-          <td class="button", id=<%= num %> data-val = 2>
+          <td class="button", id=<%= i %> data-val = 2>
             <%= f.radio_button "item#{i}", 2 %>
           </td>
-          <td class="button", id=<%= num %> data-val = 0>
+          <td class="button", id=<%= i %> data-val = 0>
             <%= f.radio_button "item#{i}", 0 %>
           </td>
         </tr>
