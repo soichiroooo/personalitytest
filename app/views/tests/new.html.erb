@@ -25,7 +25,7 @@
         <tr class="item_description">
           <th><%= Item.find(i).name %></th>
           <td class="button", id=<%= i %> data-val = 6>
-            <%= f.radio_button "item#{i}", 6, {:checked => true} %>
+            <%= f.radio_button "item#{i}", 6 %>
           </td>
           <td class="button", id=<%= i %> data-val = 4>
             <%= f.radio_button "item#{i}", 4 %>
