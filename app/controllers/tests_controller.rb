@@ -9,8 +9,9 @@ class TestsController < ApplicationController
 
   def create
     @test = Test.new(test_params)
-    judge_color
-    if @test.save
+    if @test.valid?
+      judge_color
+      @test.save
       redirect_to test_path(@test.id)
     else
       render :new
