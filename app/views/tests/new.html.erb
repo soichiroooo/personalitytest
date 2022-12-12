@@ -1,6 +1,6 @@
-<h1>トップページ</h1>
-
-<%= render 'shared/error_messages', model: @test %>
+<h1>
+  <%= link_to 'トップページ', root_path %>
+</h1>
 
 <%= form_with model:@test, url: tests_path, id: 'test-form', local: true do |f| %>
 
@@ -25,7 +25,7 @@
         <tr class="item_description">
           <th><%= Item.find(i).name %></th>
           <td class="button", id=<%= i %> data-val = 6>
-            <%= f.radio_button "item#{i}", 6 %>
+            <%= f.radio_button "item#{i}", 6, {:checked => true} %>
           </td>
           <td class="button", id=<%= i %> data-val = 4>
             <%= f.radio_button "item#{i}", 4 %>
@@ -112,4 +112,4 @@
   </div>
   <%# /送信ボタン %>
 <% end %>
-
+<%= render 'shared/error_messages', model: @test %>
