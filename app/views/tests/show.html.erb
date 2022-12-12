@@ -1,0 +1,7 @@
+red:<%= @test.r_score %>
+yellow:<%= @test.y_score %>
+blue:<%= @test.b_score %>
+green:<%= @test.g_score %>
+color_id:<%= Color.find(@test.color_id).name %>
+
+<%= render `shared/#{Color.find(@test.color_id).name}`, model: @test %>
