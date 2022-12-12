@@ -1,0 +1,16 @@
+.test_item{
+  margin: 20px;
+}
+
+.question{
+  font-weight: bold;
+  text-align: center;
+}
+.answer{
+  display: flex;
+  justify-content: center;
+}
+
+.send_btn{
+  text-align: center;
+}

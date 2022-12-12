@@ -1,2 +1,66 @@
 class Test < ApplicationRecord
+  # アクティブハッシュに関するバリデーション
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to :item
+  belongs_to :question
+
+  with_options presence: true do
+    validates :item1
+    validates :item2
+    validates :item3
+    validates :item4
+    validates :item5
+    validates :item6
+    validates :item7
+    validates :item8
+    validates :item9
+    validates :item10
+    validates :item11
+    validates :item12
+    validates :item13
+    validates :item14
+    validates :item15
+    validates :item16
+    validates :item17
+    validates :item18
+    validates :item19
+    validates :item20
+    validates :item20
+    validates :item21
+    validates :item22
+    validates :item23
+    validates :item24
+    validates :item25
+    validates :item26
+    validates :item27
+    validates :item28
+    validates :item29
+    validates :item30
+    validates :item31
+    validates :item32
+    validates :item33
+    validates :item34
+    validates :item35
+    validates :item36
+    validates :item37
+    validates :item38
+    validates :item39
+    validates :item40
+    validates :item41
+    validates :item42
+    validates :item43
+    validates :item44
+    validates :item45
+    validates :item46
+    validates :item47
+    validates :item48
+    validates :item49
+    validates :item50
+    validates :item51
+    validates :item52
+    validates :item53
+    validates :item54
+    validates :item55
+    validates :item56
+  end
 end

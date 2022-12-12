@@ -1,0 +1,115 @@
+<h1>
+  <%= link_to 'トップページ', root_path %>
+</h1>
+
+<%= form_with model:@test, url: tests_path, id: 'test-form', local: true do |f| %>
+
+  <%# 診断テスト前半部分 %>
+  <% Question.all.each_with_index do |question,num| %>
+  <div class="test_item">
+    <%# 診断テスト設問文 %>
+    <div class="question">
+      <%= Question.find(num+1).name %>
+    </div>
+    <%# 診断テスト設問文 %>
+    <%# /ラジオボタン %>
+    <table class="answer">
+      <tr>
+        <th></th>
+        <th>一番あてはまる</th>
+        <th>二番目にあてはまる</th>
+        <th>三番目にあてはまる</th>
+        <th>最もあてはまらない</th>
+      </tr>
+      <% (num*4+1..num*4+4).each do |i| %>
+        <tr class="item_description">
+          <th><%= Item.find(i).name %></th>
+          <td class="button", id=<%= i %> data-val = 6>
+            <%= f.radio_button "item#{i}", 6, {:checked => true} %>
+          </td>
+          <td class="button", id=<%= i %> data-val = 4>
+            <%= f.radio_button "item#{i}", 4 %>
+          </td>
+          <td class="button", id=<%= i %> data-val = 2>
+            <%= f.radio_button "item#{i}", 2 %>
+          </td>
+          <td class="button", id=<%= i %> data-val = 0>
+            <%= f.radio_button "item#{i}", 0 %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+    <%# /ラジオボタン %>
+  </div>
+  <% end %>
+  <%# /診断テスト前半部分 %>
+
+  <%# 診断テスト後半部分 %>
+  <table class="test_item">
+    <% (33..56).each_slice(2) do |nums| %>
+      <tr>
+        <td></td>
+        <td>完全にA</td>
+        <td>どちらかというとA</td>
+        <td>どちらも同じくらい</td>
+        <td>どちらかというとB</td>
+        <td>完全にB</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td class="item_description">
+          A: <%= Item.find(nums.at(0)).name %>
+        </td>
+        <td class="a_button", id=<%= nums.at(0) %> data-val = 4>
+          <%= f.radio_button "item#{nums.at(0)}", 4, {:checked => true} %>
+        </td>
+        <td class="a_button", id=<%= nums.at(0) %> data-val = 3>
+          <%= f.radio_button "item#{nums.at(0)}", 3 %>
+        </td>
+        <td class="a_button", id=<%= nums.at(0) %> data-val = 2>
+          <%= f.radio_button "item#{nums.at(0)}", 2 %>
+        </td>
+        <td class="a_button", id=<%= nums.at(0) %> data-val = 1>
+          <%= f.radio_button "item#{nums.at(0)}", 1 %>
+        </td>
+        <td class="a_button", id=<%= nums.at(0) %> data-val = 0>
+          <%= f.radio_button "item#{nums.at(0)}", 0 %>
+        </td>
+        <td class="item_description">
+          B: <%= Item.find(nums.at(1)).name %>
+        </td>
+      </tr>
+      <tr hidden>
+        <td class="item_description">
+          A: <%= Item.find(nums.at(0)).name %>
+        </td>
+        <td class="b_button", id=<%= nums.at(1) %>>
+          <%= f.radio_button "item#{nums.at(1)}", 0, {:checked => true} %>
+        </td>
+        <td class="b_button", id=<%= nums.at(1) %>>
+          <%= f.radio_button "item#{nums.at(1)}", 1 %>
+        </td>
+        <td class="b_button", id=<%= nums.at(1) %>>
+          <%= f.radio_button "item#{nums.at(1)}", 2 %>
+        </td>
+        <td class="b_button", id=<%= nums.at(1) %>>
+          <%= f.radio_button "item#{nums.at(1)}", 3 %>
+        </td>
+        <td class="b_button", id=<%= nums.at(1) %>>
+          <%= f.radio_button "item#{nums.at(1)}", 4 %>
+        </td>
+        <td class="item_description">
+          B: <%= Item.find(nums.at(1)).name %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+  <%# /診断テスト後半部分 %>
+
+  <%# 送信ボタン %>
+  <div class="send_btn">
+    <%= f.submit "診断する" %>
+  </div>
+  <%# /送信ボタン %>
+<% end %>
+<%= render 'shared/error_messages', model: @test %>
