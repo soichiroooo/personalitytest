@@ -3,7 +3,7 @@ class Color < ActiveHash::Base
     { id: 1, name: 'Red:' },
     { id: 2, name: 'Yellow' },
     { id: 3, name: 'Blue:' },
-    { id: 4, name: 'green:' },
+    { id: 4, name: 'Green:' },
     { id: 5, name: 'Red&Yellow:' },
     { id: 6, name: 'Red&Blue:' },
     { id: 7, name: 'Red&Green:' },

@@ -4,4 +4,13 @@ blue:<%= @test.b_score %>
 green:<%= @test.g_score %>
 color_id:<%= Color.find(@test.color_id).name %>
 
-<%= render `shared/#{Color.find(@test.color_id).name}`, model: @test %>
+<% case @test.color_id %>
+  <% when 1 then %>
+    <%= render 'shared/red' %>
+  <% when 2 then %>
+    <%= render 'shared/yellow' %>
+  <% when 3 then %>
+    <%= render 'shared/blue' %>
+  <% when 4 then %>
+    <%= render 'shared/green' %>
+<% end %>
