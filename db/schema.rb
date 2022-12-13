@@ -69,6 +69,11 @@ ActiveRecord::Schema.define(version: 2022_12_05_025520) do
     t.integer "item54"
     t.integer "item55"
     t.integer "item56"
+    t.integer "r_score"
+    t.integer "y_score"
+    t.integer "b_score"
+    t.integer "g_score"
+    t.integer "color_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

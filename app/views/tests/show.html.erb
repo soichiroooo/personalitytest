@@ -1,0 +1,99 @@
+<div id="r_score">
+  <%= @test.r_score %>
+</div>
+<div id="y_score">
+  <%= @test.y_score %>
+</div>
+<div id="b_score">
+  <%= @test.b_score %>
+</div>
+<div id="g_score">
+  <%= @test.g_score %>
+</div>
+  <%# <font color='#4dc9f6'>ab</font>
+  <font color='#f67019'>ab</font>
+  <font color='#f53794'>ab</font>
+  <font color='#537bc4'>ab</font>
+  <font color='#acc236'>ab</font>
+  <font color='#166a8f'>ab</font>
+  <font color='#00a950'>ab</font>
+  <font color='#58595b'>ab</font>
+  <font color='#8549ba'>ab</font>
+  red: 'rgb(255, 99, 132)',
+  orange: 'rgb(255, 159, 64)',
+  yellow: 'rgb(255, 205, 86)',
+  green: 'rgb(75, 192, 192)',
+  blue: 'rgb(54, 162, 235)',
+  purple: 'rgb(153, 102, 255)',
+  grey: 'rgb(201, 203, 207)' %>
+color_id:<%= Color.find(@test.color_id).name %>
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <title>Line Chart 01</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.0/chart.min.js"></script>
+
+  <style>
+    .box { height:500px; width:500px; margin:0 auto; }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <canvas id="myChart" width="400" height="400"></canvas>
+  </div>
+  <script>
+    var ctx = document.getElementById('myChart').getContext('2d');
+    const rScore = document.getElementById("r_score").innerHTML
+    const yScore = document.getElementById("y_score").innerHTML
+    const bScore = document.getElementById("b_score").innerHTML
+    const gScore = document.getElementById("g_score").innerHTML
+    var myChart = new Chart(ctx, {
+      type: 'radar',
+      data: {
+        labels: ['Red', 'Yellow', 'Blue', 'Green'],
+        datasets: [
+          {
+            label: 'あなたの性格診断結果',
+            data: [ `${rScore}` , `${yScore}` , `${bScore}` , `${gScore}` ],
+            fill: true,
+            backgroundColor: 'rgba(201, 203, 207, 0.5)',
+            borderColor: 'rgb(201, 203, 207)',
+            pointBackgroundColor: 'rgb(201, 203, 207)',
+            pointBorderColor: '#fff',
+            pointHoverBackgroundColor: '#fff',
+            pointHoverBorderColor: 'rgb(201, 203, 207)'
+          }
+        ]
+      },  
+      options: {
+        responsive: true,
+        elements: {
+          line: {
+            borderWidth: 3
+          }
+        },
+        scale: {
+          r: {
+            min: 0,
+            max: 80,
+          }
+        }
+      }
+    });
+  </script>
+
+  <% case @test.color_id %>
+    <% when 1 then %>
+      <%= render 'shared/red' %>
+    <% when 2 then %>
+      <%= render 'shared/yellow' %>
+    <% when 3 then %>
+      <%= render 'shared/blue' %>
+    <% when 4 then %>
+      <%= render 'shared/green' %>
+  <% end %>
+</body>
+</html>

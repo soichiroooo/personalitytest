@@ -57,6 +57,11 @@ class CreateTests < ActiveRecord::Migration[6.0]
       t.integer :item54
       t.integer :item55
       t.integer :item56
+      t.integer :r_score
+      t.integer :y_score
+      t.integer :b_score
+      t.integer :g_score
+      t.integer :color_id
       t.timestamps
     end
   end
