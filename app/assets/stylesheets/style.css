@@ -1,0 +1,242 @@
+*{
+  font-family: 'Open Sans', sans-serif;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+.main {
+  background: #f9f9f9;
+}
+
+:root {
+  --font-family-main: "Open Sans","Helvetica Neue",Arial;
+  --font-main-size: 1.125em;
+  /* --font-h1-line-height-large-sm: 1.192;
+  --font-h1-line-height-large-md: 1.226;
+  --font-h1-line-height-large-lg: 1.25;
+  --font-h1-size-large-sm: 3.25rem;
+  --font-h1-size-large-md: 3.875rem;
+  --font-h1-size-large-lg: 4.5rem;
+  --font-h1-spacing-large-sm: -0.7px;
+  --font-h1-spacing-large-md: -0.8px;
+  --font-h1-spacing-large-lg: -0.9px;
+  --font-h1-size-md: 2.75rem;
+  --font-h1-line-height-md: 1.318;
+  --font-h1-spacing-md: -0.6px;
+  --font-h1-size-lg: 3.375rem;
+  --font-h1-line-height-lg: 1.3333;
+  --font-h1-spacing-lg: -0.7px;
+  --font-h1-size: 2.25rem;
+  --font-h1-line-height: 1.278;
+  --font-h1-spacing: -0.5px;
+  --font-h2-size-bp-sm: 2.125rem;
+  --font-h2-line-height-bp-sm: 1.294;
+  --font-h2-spacing-bp-sm: -0.5px;
+  --font-h2-line-height-bp-sm2: 1.37;
+  --font-h2-size-bp-md: 2.375rem;
+  --font-h2-line-height-bp-md: 1.158;
+  --font-h2-spacing-bp-md: -0.5px;
+  --font-h2-size-bp-lg: 2.875rem;
+  --font-h2-line-height-bp-lg: 1.391;
+  --font-h2-spacing-bp-lg: -0.6px;
+  --font-h3-size-bp-sm: 1.875rem;
+  --font-h3-line-height-bp-sm: 1.4;
+  --font-h3-spacing-bp-sm: -0.5px;
+  --font-h3-size-bp-md: 2rem;
+  --font-h3-line-height-bp-md: 1.375;
+  --font-h3-spacing-bp-md: -0.5px;
+  --font-h3-size-bp-lg: 2.375rem;
+  --font-h3-line-height-bp-lg: 1.4737;
+  --font-h3-spacing-bp-lg: -0.5px; */
+}
+
+body{
+  color: #51596a;
+  font-family: var(--font-family-main);
+  font-size: var(--font-main-size);
+  font-stretch: var(--font-text-stretch);
+  font-weight: var(--font-main-weight);
+}
+
+/********************* ヘッダー部分 *********************/
+.top-page-header {
+  position: sticky;
+  top: 0;
+  align-items: center;
+  background-color: #fff;
+  border-bottom: 1px solid #eeeff1;
+  display: flex;
+  height: 90px;
+  padding: 0 20px;
+  justify-content: space-between;
+  margin: 0;
+  z-index: 2;
+}
+
+.header_logo {
+  font-size: 2em;
+  line-height: 2em;
+  color: #51596a;
+  font-family: var(--font-family-main);
+}
+
+.lists {
+  align-items: center;
+  display: flex;
+  flex-grow: 1;
+  height: 100%;
+  justify-content: center;
+}
+
+.list {
+  margin: 0 10px;
+}
+/********************* ヘッダー部分 *********************/
+/********************* タイトル部分 *********************/
+.title-contents{
+  padding: 60px 30px;
+  background-color: #C9CBCF;
+  font-size: 3.5em;
+  color: #f9f9f9;
+  line-height: 1.4;
+  text-align: center;
+  font-family: 'Open Sans', sans-serif;
+  font-family: 'Roboto', sans-serif;
+  border: none;
+}
+/********************* タイトル部分 *********************/
+/********************* 診断テスト共通部分 *********************/
+.test_explanation {
+  align-items: center;
+  background-color: #C9CBCF;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  padding: 15px;
+  position: relative;
+  border: none;
+}
+
+.test_explanation_item {
+  align-items: center;
+  background-color: hsla(0,0%,100%,.8);
+  border-radius: 10px;
+  display: flex;
+  flex: 0 0 100%;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin-bottom: 10px;
+  max-width: 550px;
+  padding: 10px;
+  position: relative;
+  width: 100%;
+  font-weight: 600;
+  font-size: 1.08em;
+  line-height: 1.5;
+  text-align: center;
+}
+
+/********************* 診断テスト共通部分 *********************/
+/********************* 診断テスト前半部分 *********************/
+.first_test_items {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 900px;
+  padding: 15px;
+  width: 100%;
+}
+
+.first_test_item {
+  border-bottom: 1px solid #dddfe2;
+  width: 100%;
+  padding: 60px 0 45px;
+}
+
+.question {
+  color: #576071;
+  font-weight: 600;
+  font-size: var(--font-main-size);
+  line-height: 1.5;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.answer_title {
+  font-size: 0.8em;
+}
+
+.item_description {
+  color: #576071;
+  font-weight: 600;
+  font-size: var(--font-main-size);
+  line-height: 2em;
+}
+
+.item_description th{
+  padding: 0.1em;
+  width: 800px;
+}
+
+.item_description td{
+  width: 100px;
+}
+
+.button {
+  text-align: center;
+}
+
+/********************* 診断テスト前半部分 *********************/
+/********************* 診断テスト後半部分 *********************/
+.second_test_items {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 900px;
+  padding: 15px;
+  width: 100%;
+}
+
+.second_test_item {
+  border-bottom: 1px solid #dddfe2;
+  width: 100%;
+  padding: 60px 0 45px;
+}
+
+.option_title{
+  text-align: center;
+  line-height: 3em;
+  font-size: 0.8em;
+}
+
+.option_a_description{
+  color: #576071;
+  font-weight: 600;
+  font-size: var(--font-main-size);
+  line-height: 3em;
+  text-align: left;
+  width: 200px;
+}
+
+.option_b_description{
+  color: #576071;
+  font-weight: 600;
+  font-size: var(--font-main-size);
+  line-height: 3em;
+  text-align: right;
+  width: 200px;
+}
+
+.a_button {
+  text-align: center;
+  line-height: 3em;
+  width: 100px;
+}
