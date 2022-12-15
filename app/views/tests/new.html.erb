@@ -2,7 +2,7 @@
 
 <body>
   <div class="title-contents">
-    <h1>無料性格診断テスト</h1>
+    <p>無料性格診断テスト</p>
   </div>
   <div class='main'>
     <%# 診断テストフォーム %>
@@ -135,8 +135,10 @@
       <%# /診断テスト後半部分 %>
 
       <%# 送信ボタン %>
-      <div class="send_btn">
-        <%= f.submit "診断する" %>
+      <div class="page_bottom">
+        <div class="send_btn">
+          <%= f.submit "診断する" %>
+        </div>
       </div>
       <%# /送信ボタン %>
     <% end %>
