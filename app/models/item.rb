@@ -8,9 +8,9 @@ class Item < ActiveHash::Base
     { id: 6, name: '社交的で楽しくエネルギーが高い' },
     { id: 7, name: '場をコントロールして、自信たっぷり' },
     { id: 8, name: '静かに見守り、賢く見せる' },
-    { id: 9, name: '優柔不断で弱っちい' },
+    { id: 9, name: '優柔不断で弱々しい' },
     { id: 10, name: '忘れっぽく、いつも遅刻して、だらしがない' },
-    { id: 11, name: '超つまんない真面目の堅物' },
+    { id: 11, name: 'つまらない真面目の堅物' },
     { id: 12, name: '不愛想で、物質主義で、感情を全く見せない' },
     { id: 13, name: '自分の感情を伝えたり、表現をしたい' },
     { id: 14, name: '自分の感情は無視して、もっと大事なことにフォーカスする' },
@@ -55,7 +55,7 @@ class Item < ActiveHash::Base
     { id: 53, name: 'ユーモアがある' },
     { id: 54, name: '質素' },
     { id: 55, name: '誠実' },
-    { id: 56, name: '動機が高い' }
+    { id: 56, name: 'モチベーションが高い' }
   ]
 
   include ActiveHash::Associations
