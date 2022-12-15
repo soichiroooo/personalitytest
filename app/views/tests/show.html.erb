@@ -1,5 +1,6 @@
 <%= render "shared/header" %>
 <body>
+<%# 診断結果のパラメーターを持たせる非表示部分 %>
   <div hidden>
     <span id="r_score">
       <%= @test.r_score %>
@@ -13,36 +14,71 @@
     <span id="g_score">
       <%= @test.g_score %>
     </span>
+    <span id="color_id">
+      <%= @test.color_id %>
+    </span>
   </div>
-  <%# <font color='#4dc9f6'>ab</font>
-  <font color='#f67019'>ab</font>
-  <font color='#f53794'>ab</font>
-  <font color='#537bc4'>ab</font>
-  <font color='#acc236'>ab</font>
-  <font color='#166a8f'>ab</font>
-  <font color='#00a950'>ab</font>
-  <font color='#58595b'>ab</font>
-  <font color='#8549ba'>ab</font>
-  red: 'rgb(255, 99, 132)',
-  orange: 'rgb(255, 159, 64)',
-  yellow: 'rgb(255, 205, 86)',
-  green: 'rgb(75, 192, 192)',
-  blue: 'rgb(54, 162, 235)',
-  purple: 'rgb(153, 102, 255)',
-  grey: 'rgb(201, 203, 207)' %>
-<div class="result-statement">
-  あなたの性格タイプは<%= Color.find(@test.color_id).name %>です
-</div>
+<%# /診断結果のパラメーターを持たせる非表示部分 %>
+<%# 診断結果 %>
+  <div class="result">
+    <div class="result-statement">
+      あなたの性格タイプは<span class="color" id = <%= @test.color_id %>><%= Color.find(@test.color_id).name %></span>です
+    </div>
+    <div class="box">
+      <canvas id="myChart" width="400" height="400"></canvas>
+    </div>
+  </div>
+<%# /診断結果 %>
+<%# 診断結果説明文 部分テンプレート %>
+  <div class="color-explanation">
+    <% case @test.color_id %>
+      <% when 1 then %>
+        <%= render 'shared/red' %>
+      <% when 2 then %>
+        <%= render 'shared/yellow' %>
+      <% when 3 then %>
+        <%= render 'shared/blue' %>
+      <% when 4 then %>
+        <%= render 'shared/green' %>
+    <% end %>
+  </div>
+<%# /診断結果説明文 部分テンプレート %>
+</body>
 
-  <div class="box">
-    <canvas id="myChart" width="400" height="400"></canvas>
-  </div>
-  <script>
+
+<%# Chart.js %>
+<script>
     var ctx = document.getElementById('myChart').getContext('2d');
     const rScore = document.getElementById("r_score").innerHTML
     const yScore = document.getElementById("y_score").innerHTML
     const bScore = document.getElementById("b_score").innerHTML
     const gScore = document.getElementById("g_score").innerHTML
+    const colorId = document.getElementById("color_id").innerHTML
+    const CHART_COLORS = {
+      red: 'rgb(255, 99, 132, 0.5)',
+      orange: 'rgb(255, 159, 64, 0.5)',
+      yellow: 'rgb(255, 205, 86, 0.5)',
+      green: 'rgb(75, 192, 192, 0.5)',
+      blue: 'rgb(54, 162, 235, 0.5)',
+      purple: 'rgb(153, 102, 255, 0.5)',
+      grey: 'rgb(201, 203, 207, 0.5)'
+    };
+    if (colorId == 1){
+      var CHART_COLOR = CHART_COLORS.red
+      document.documentElement.style.setProperty('--my-color', CHART_COLOR);
+    } else if (colorId == 2){
+      var CHART_COLOR = CHART_COLORS.yellow
+      document.documentElement.style.setProperty('--my-color', CHART_COLOR);
+    } else if (colorId == 3){
+      var CHART_COLOR = CHART_COLORS.blue
+      document.documentElement.style.setProperty('--my-color', CHART_COLOR);
+    } else if (colorId == 4){
+      var CHART_COLOR = CHART_COLORS.green
+      document.documentElement.style.setProperty('--my-color', CHART_COLOR);
+    } else {
+      var CHART_COLOR = CHART_COLORS.grey
+      document.documentElement.style.setProperty('--my-color', CHART_COLOR);
+    }
     var myChart = new Chart(ctx, {
       type: 'radar',
       data: {
@@ -52,12 +88,12 @@
             label: 'あなたの性格診断結果',
             data: [ `${rScore}` , `${yScore}` , `${bScore}` , `${gScore}` ],
             fill: true,
-            backgroundColor: 'rgba(201, 203, 207, 0.5)',
-            borderColor: 'rgb(201, 203, 207)',
-            pointBackgroundColor: 'rgb(201, 203, 207)',
+            backgroundColor: CHART_COLOR,
+            borderColor: CHART_COLOR,
+            pointBackgroundColor: CHART_COLOR,
             pointBorderColor: '#fff',
             pointHoverBackgroundColor: '#fff',
-            pointHoverBorderColor: 'rgb(201, 203, 207)'
+            pointHoverBorderColor: CHART_COLOR
           }
         ]
       },  
@@ -83,15 +119,4 @@
       }
     });
   </script>
-
-  <% case @test.color_id %>
-    <% when 1 then %>
-      <%= render 'shared/red' %>
-    <% when 2 then %>
-      <%= render 'shared/yellow' %>
-    <% when 3 then %>
-      <%= render 'shared/blue' %>
-    <% when 4 then %>
-      <%= render 'shared/green' %>
-  <% end %>
-</body>
+  <%# /Chart.js %>
