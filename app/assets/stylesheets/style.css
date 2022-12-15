@@ -136,6 +136,20 @@ body{
   margin: 0 10px;
 }
 /********************* ヘッダー部分 *********************/
+/********************* フッター部分 *********************/
+.footer {
+  align-items: center;
+  background-color: #76787c;
+  border-top: 1px solid #76787c;
+  display: flex;
+  flex-direction: column;
+  font-size: var(--font-p-sm-size-bp-sm);
+  justify-content: center;
+  line-height: var(--font-p-sm-line-height-bp-sm);
+  margin: auto auto 0;
+  padding: 20px 15px 100px;
+}
+/********************* フッター部分 *********************/
 /********************* タイトル部分 *********************/
 .title-contents{
   padding: 60px 30px;
@@ -371,3 +385,4 @@ input[type="submit"]:hover {
   padding: 15px;
   width: 100%;
 }
+/********************* 診断結果確認 *********************/
