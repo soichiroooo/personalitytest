@@ -7,8 +7,40 @@ a {
   text-decoration: none;
 }
 
+a:link, a:visited, a:hover, a:active{
+  color: #76787c;
+}
+
 .main {
   background: #f9f9f9;
+}
+
+.h1 {
+  font-size: var(font-h1-size-large-lg);
+}
+
+.h2 {
+  font-size: 2.5em;
+  margin: 50px 0 30px;
+  font-weight: 600;
+  letter-spacing: unset;
+  line-height: 1.5;
+  display: block;
+  margin-block-start: 0.83em;
+  margin-block-end: 0.83em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+
+.h3 {
+  
+}
+
+p {
+  line-height: 2.2;
+  margin-bottom: 30px;
+  background-position: 0 18px;
+  /* font-size: 1.4em; */
 }
 
 :root {
@@ -18,9 +50,9 @@ a {
   --font-h1-line-height-large-md: 1.226;
   --font-h1-line-height-large-lg: 1.25;
   --font-h1-size-large-sm: 3.25rem;
-  --font-h1-size-large-md: 3.875rem;
-  --font-h1-size-large-lg: 4.5rem;
-  --font-h1-spacing-large-sm: -0.7px;
+  --font-h1-size-large-md: 3.875rem;*/
+  --font-h1-size-large-lg: 4.5rem; 
+  /* --font-h1-spacing-large-sm: -0.7px;
   --font-h1-spacing-large-md: -0.8px;
   --font-h1-spacing-large-lg: -0.9px;
   --font-h1-size-md: 2.75rem;
@@ -51,10 +83,19 @@ a {
   --font-h3-size-bp-lg: 2.375rem;
   --font-h3-line-height-bp-lg: 1.4737;
   --font-h3-spacing-bp-lg: -0.5px; */
+  --font-btn-font-weight: 600;
+  --font-btn-30-size: 14px;
+  --font-btn-30-line-height: 1.857143;
+  --font-btn-40-size: 14px;
+  --font-btn-40-line-height: 1.857143;
+  --font-btn-50-size: 16px;
+  --font-btn-50-line-height: 1.75;
+  --font-btn-60-size: 18px;
+  --font-btn-60-line-height: 1.667;
 }
 
 body{
-  color: #51596a;
+  color: #76787c;
   font-family: var(--font-family-main);
   font-size: var(--font-main-size);
   font-stretch: var(--font-text-stretch);
@@ -79,7 +120,7 @@ body{
 .header_logo {
   font-size: 2em;
   line-height: 2em;
-  color: #51596a;
+  color: #76787c;
   font-family: var(--font-family-main);
 }
 
@@ -98,20 +139,23 @@ body{
 /********************* タイトル部分 *********************/
 .title-contents{
   padding: 60px 30px;
-  background-color: #C9CBCF;
+  background-color: #bcbec2;
   font-size: 3.5em;
   color: #f9f9f9;
   line-height: 1.4;
   text-align: center;
   font-family: 'Open Sans', sans-serif;
-  font-family: 'Roboto', sans-serif;
   border: none;
+}
+
+.title-contents p{
+  margin: 30px 0;
 }
 /********************* タイトル部分 *********************/
 /********************* 診断テスト共通部分 *********************/
 .test_explanation {
   align-items: center;
-  background-color: #C9CBCF;
+  background-color: #bcbec2;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -129,7 +173,6 @@ body{
   flex: 0 0 100%;
   flex-direction: row;
   justify-content: flex-start;
-  margin-bottom: 10px;
   max-width: 550px;
   padding: 10px;
   position: relative;
@@ -138,6 +181,7 @@ body{
   font-size: 1.08em;
   line-height: 1.5;
   text-align: center;
+  margin: 80px 0;
 }
 
 /********************* 診断テスト共通部分 *********************/
@@ -160,7 +204,7 @@ body{
 }
 
 .question {
-  color: #576071;
+  color: #76787c;
   font-weight: 600;
   font-size: var(--font-main-size);
   line-height: 1.5;
@@ -190,6 +234,7 @@ body{
 
 .button {
   text-align: center;
+  cursor: pointer;
 }
 
 /********************* 診断テスト前半部分 *********************/
@@ -239,4 +284,90 @@ body{
   text-align: center;
   line-height: 3em;
   width: 100px;
+  cursor: pointer;
+}
+/********************* 診断テスト後半部分 *********************/
+/********************* 送信ボタン *********************/
+.page_bottom{
+  background-color: #f9f9f9;
+  align-items: center;
+  border-bottom: 1px solid #dddfe2;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 700px;
+  padding: 15px 0 90px;
+  width: 100%;
+}
+
+input[type="submit"] {
+  font-size: 20px;
+  height: 80px;
+  padding: 19px 50px;
+  background-color: #bcbec2;
+  border-color: #bcbec2;
+  border-radius: 40px;
+  align-items: center;
+  border: 1px solid transparent;
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: var(--font-family-text);
+  font-weight: var(--font-btn-font-weight);
+  justify-content: center;
+  line-height: 2;
+  width: 280px;
+}
+
+input[type="submit"]:hover {
+  font-size: 20px;
+  height: 80px;
+  padding: 19px 50px;
+  background-color: #94969a;
+  border-color: #94969a;
+  border-radius: 40px;
+  align-items: center;
+  border: 1px solid transparent;
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: var(--font-family-text);
+  font-weight: var(--font-btn-font-weight);
+  justify-content: center;
+  line-height: 2;
+  width: 280px;
+}
+/********************* 送信ボタン *********************/
+/********************* 診断結果確認 *********************/
+.result {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 900px;
+  padding: 15px;
+  width: 100%;
+  text-align: center;
+}
+
+.result-statement {
+  width: 100%;
+  padding: 60px 0 45px;
+  font-size: 50px;
+}
+
+.result-statement span{
+  color: var(--my-color);
+}
+
+.color-explanation {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 900px;
+  padding: 15px;
+  width: 100%;
 }
