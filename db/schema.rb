@@ -86,7 +86,7 @@ ActiveRecord::Schema.define(version: 2022_12_15_140550) do
     t.string "last_name", default: "", null: false
     t.string "gender", default: "", null: false
     t.date "birthday", null: false
-    t.integer "color_id", null: false
+    t.integer "color_id"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
