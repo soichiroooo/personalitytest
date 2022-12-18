@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: {
+    registrations: 'users/registrations'
+  }
   root to:"tests#new"
-  resources :tests, only: [:new, :create, :show]
+  resource :tests, only: [:new, :create, :show]
 end

@@ -62,6 +62,7 @@ class CreateTests < ActiveRecord::Migration[6.0]
       t.integer :b_score
       t.integer :g_score
       t.integer :color_id
+      t.references :user,            foreign_key: true
       t.timestamps
     end
   end
