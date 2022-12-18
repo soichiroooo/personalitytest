@@ -43,8 +43,21 @@
     <% end %>
   </div>
 <%# /診断結果説明文 部分テンプレート %>
+<%# 他のユーザーの結果を見るボタン %>
+<% if user_signed_in? %>
+  <div class="send_btn">
+    <%= link_to '他のユーザーの結果を見る', '#' %>
+  </div>
+<% else %>
+  <%= form_with model:@test, url: new_user_registration_path, method: :get, id: 'test-form', local: true do |f| %>
+    <div class="send_btn">
+      <%= f.submit "会員登録して他のユーザーの結果を見る" %>
+    </div>
+  <% end %>
+<% end %>
+<%# 他のユーザーの結果を見るボタン %>
 </body>
-
+<%= render "shared/footer" %>
 
 <%# Chart.js %>
 <script>
@@ -123,4 +136,3 @@
     });
   </script>
   <%# /Chart.js %>
-  <%= render "shared/footer" %>

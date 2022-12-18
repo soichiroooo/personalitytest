@@ -4,6 +4,7 @@ class Test < ApplicationRecord
   belongs_to :item
   belongs_to :question
 
+  # バリデーション
   with_options presence: true do
     validates :item1
     validates :item2
