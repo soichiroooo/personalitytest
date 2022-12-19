@@ -3,5 +3,9 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
   root to:"tests#new"
-  resource :tests, only: [:new, :create, :show]
+  resource :tests, only: [:new, :create, :show] do
+    collection do
+      get 'color'
+    end
+  end
 end

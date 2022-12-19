@@ -383,9 +383,9 @@ input[type="submit"]:hover {
   font-size: 50px;
 }
 
-.result-statement span{
+/* .result-statement span{
   color: var(--my-color);
-}
+} */
 
 .color-explanation {
   align-items: center;
@@ -571,3 +571,79 @@ input[type="submit"]:hover {
   margin: 50px auto 0;
   text-align: center;
 }
+/********************* ユーザー管理機能 *********************/
+/********************* 他のユーザーの結果も見るボタン *********************/
+/* .look_btn {
+  text-align: center;
+  margin: 50px auto 100px;
+} */
+.show_page_bottom {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 15px 0 90px;
+  width: 100%;
+}
+
+.look_btn {
+  font-size: 20px;
+  height: 80px;
+  padding: 19px 50px;
+  background-color: #bcbec2;
+  border-color: #bcbec2;
+  border-radius: 40px;
+  align-items: center;
+  border: 1px solid transparent;
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: var(--font-family-text);
+  font-weight: var(--font-btn-font-weight);
+  justify-content: center;
+  line-height: 2;
+  width: 280px;
+}
+
+.look_btn a {
+  color: #fff;
+  white-space: nowrap;
+}
+
+.look_btn:hover {
+  font-size: 20px;
+  height: 80px;
+  padding: 19px 50px;
+  background-color: #94969a;
+  border-color: #94969a;
+  border-radius: 40px;
+  align-items: center;
+  border: 1px solid transparent;
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: var(--font-family-text);
+  font-weight: var(--font-btn-font-weight);
+  justify-content: center;
+  line-height: 2;
+  width: 280px;
+}
+
+/********************* 他のユーザーの結果も見るボタン *********************/
+/********************* 色設定 *********************/
+.red {
+  color: rgba(255, 99, 132, 0.5);
+}
+
+.yellow {
+  color: rgb(255, 205, 86, 0.5);
+}
+
+.green {
+  color: rgb(75, 192, 192, 0.5);
+}
+
+.blue {
+  color: rgb(54, 162, 235, 0.5);
+}
+/********************* 色設定 *********************/
