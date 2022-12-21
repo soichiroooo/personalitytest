@@ -69,7 +69,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @user = User.new(user_params)
     if !session[:test].nil?
       @test = Test.create(session[:test])
-      @user.color_id = @test.color_id
+      @user.test_id = @test.id
       if @user.save
         session[:test].clear
         sign_in(:user, @user)
@@ -91,6 +91,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
     params.require(:user).permit(:nickname, :email, :password,
                                  :password_confirmation,
                                  :first_name, :last_name, :gender,
-                                 :birthday, :color_id)
+                                 :birthday)
   end
 end
