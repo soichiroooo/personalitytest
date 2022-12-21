@@ -62,6 +62,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def new
     @user = User.new
+    session[:previous_url] = request.referer
   end
 
   def create
@@ -70,6 +71,15 @@ class Users::RegistrationsController < Devise::RegistrationsController
       @test = Test.create(session[:test])
       @user.color_id = @test.color_id
       if @user.save
+        session[:test].clear
+        sign_in(:user, @user)
+        redirect_to session[:previous_url]
+      else
+        render :new
+      end
+    else
+      if @user.save
+        sign_in(:user, @user)
         redirect_to root_path
       else
         render :new
