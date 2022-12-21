@@ -67,7 +67,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def create
     @user = User.new(user_params)
-    if session[:test] != nil
+    if !session[:test].nil?
       @test = Test.create(session[:test])
       @user.color_id = @test.color_id
       if @user.save
@@ -77,13 +77,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
       else
         render :new
       end
+    elsif @user.save
+      sign_in(:user, @user)
+      redirect_to root_path
     else
-      if @user.save
-        sign_in(:user, @user)
-        redirect_to root_path
-      else
-        render :new
-      end
+      render :new
     end
   end
 
@@ -93,6 +91,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
     params.require(:user).permit(:nickname, :email, :password,
                                  :password_confirmation,
                                  :first_name, :last_name, :gender,
-                                 :birthday, :color_id )
+                                 :birthday, :color_id)
   end
 end
