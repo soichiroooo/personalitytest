@@ -1,0 +1,124 @@
+<%= render "shared/header" %>
+<body>
+<%# 診断結果のパラメーターを持たせる非表示部分 %>
+  <div>
+    <span id="r_length">
+      <%= @r_users.length %>
+    </span>
+    <span id="y_length">
+      <%= @y_users.length %>
+    </span>
+    <span id="b_length">
+      <%= @b_users.length %>
+    </span>
+    <span id="g_length">
+      <%= @g_users.length %>
+    </span>
+    <span id="r_users">
+      <% @r_users.each_with_index do |g_user,i| %>
+        <span class="r_users", data-i=<%= i %> ><%= r_user.nickname %></span>
+      <% end %>
+    </span>
+    <span id="y_length">
+      <% @y_users.each_with_index do |g_user,i| %>
+        <span class="y_users", data-i=<%= i %> ><%= y_user.nickname %></span>
+      <% end %>
+    </span>
+    <span id="b_length">
+      <% @b_users.each_with_index do |g_user,i| %>
+        <span class="b_users", data-i=<%= i %> ><%= b_user.nickname %></span>
+      <% end %>
+    </span>
+    <span id="g_length">
+      <% @g_users.each_with_index do |g_user,i| %>
+        <span class="g_users", data-i=<%= i %> ><%= g_user.nickname %></span>
+      <% end %>
+    </span>
+  </div>
+<%# /診断結果のパラメーターを持たせる非表示部分 %>
+<%# 診断結果 %>
+  <div class="result">
+    <div class="result-statement">
+      他のユーザーの診断結果はこちら
+    </div>
+    <div class="box">
+      <canvas id="myPieChart" width="400" height="400"></canvas>
+    </div>
+    <div class="box">
+      <canvas id="myScatterChart" width="400" height="400"></canvas>
+    </div>
+  </div>
+<%# /診断結果 %>
+<%# 他のユーザーの結果を見るボタン %>
+</body>
+<%= render "shared/footer" %>
+
+<%# Chart.js %>
+<script>
+    var ctx = document.getElementById('myPieChart').getContext('2d');
+    console.log(ctx)
+    const rLength = document.getElementById("r_length").innerHTML
+    const yLength = document.getElementById("y_length").innerHTML
+    const bLength = document.getElementById("b_length").innerHTML
+    const gLength = document.getElementById("g_length").innerHTML
+    const CHART_COLORS = {
+      red: 'rgb(255, 99, 132, 0.5)',
+      orange: 'rgb(255, 159, 64, 0.5)',
+      yellow: 'rgb(255, 205, 86, 0.5)',
+      green: 'rgb(75, 192, 192, 0.5)',
+      blue: 'rgb(54, 162, 235, 0.5)',
+      purple: 'rgb(153, 102, 255, 0.5)',
+      grey: 'rgb(201, 203, 207, 0.5)'
+    };
+
+    var myPieChart = new Chart(ctx, {
+      type: 'pie',
+      data: {
+        labels: ['Red', 'Yellow', 'Blue', 'Green'],
+        datasets: [
+          {
+            label: '他のユーザーの診断結果',
+            data: [ `${rLength}` , `${yLength}` , `${bLength}` , `${gLength}` ],
+            fill: true,
+            backgroundColor: [ CHART_COLORS.red, CHART_COLORS.yellow, CHART_COLORS.blue, CHART_COLORS.green ]
+          }
+        ]
+      },  
+      options: {
+        responsive: true,
+        elements: {
+          line: {
+            borderWidth: 3
+          }
+        },
+        scale: {
+          }
+        }
+    });
+
+        var myScatterChart = new Chart(ctx, {
+      type: 'Scatter',
+      data: {
+        labels: ['Red', 'Yellow', 'Blue', 'Green'],
+        datasets: [
+          {
+            label: '他のユーザーの診断結果',
+            data: [ `${rLength}` , `${yLength}` , `${bLength}` , `${gLength}` ],
+            fill: true,
+            backgroundColor: [ CHART_COLORS.red, CHART_COLORS.yellow, CHART_COLORS.blue, CHART_COLORS.green ]
+          }
+        ]
+      },  
+      options: {
+        responsive: true,
+        elements: {
+          line: {
+            borderWidth: 3
+          }
+        },
+        scale: {
+          }
+        }
+    });
+  </script>
+  <%# /Chart.js %>

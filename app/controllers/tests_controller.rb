@@ -1,11 +1,17 @@
 class TestsController < ApplicationController
+  before_action :authenticate_user!, only: [:analysis]
+
+  def index
+  end
+
   def new
     @test = Test.new
-    @user = User.new
+    @user = User.find_by(id: session[:user_id]) || User.new
   end
 
   def show
     if user_signed_in?
+      
       @test = Test.find(params[:format])
     else
       @test = Test.new(session[:test])
@@ -36,6 +42,14 @@ class TestsController < ApplicationController
         render :new
       end
     end
+  end
+
+  def analysis
+    @users = User.all
+    @r_users = User.where(color_id: "1")
+    @y_users = User.where(color_id: "2")
+    @b_users = User.where(color_id: "3")
+    @g_users = User.where(color_id: "4")
   end
 
   private

@@ -47,7 +47,7 @@
 <div class="show_page_bottom">
   <% if user_signed_in? %>
     <div class="look_btn">
-      <%= link_to '他のユーザーの結果を見る', color_tests_path %>
+      <%= link_to '他のユーザーの結果を見る', analysis_tests_path %>
     </div>
   <% else %>
     <%= form_with model:@test, url: new_user_registration_path, method: :get, id: 'test-form', local: true do |f| %>
@@ -80,16 +80,12 @@
     };
     if (colorId == 1){
       var CHART_COLOR = CHART_COLORS.red
-      // document.documentElement.style.setProperty('--my-color', CHART_COLOR);
     } else if (colorId == 2){
       var CHART_COLOR = CHART_COLORS.yellow
-      // document.documentElement.style.setProperty('--my-color', CHART_COLOR);
     } else if (colorId == 3){
       var CHART_COLOR = CHART_COLORS.blue
-      // document.documentElement.style.setProperty('--my-color', CHART_COLOR);
     } else if (colorId == 4){
       var CHART_COLOR = CHART_COLORS.green
-      // document.documentElement.style.setProperty('--my-color', CHART_COLOR);
     } else {
       var CHART_COLOR = CHART_COLORS.grey
       document.documentElement.style.setProperty('--my-color', CHART_COLOR);
