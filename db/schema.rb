@@ -74,10 +74,8 @@ ActiveRecord::Schema.define(version: 2022_12_15_140550) do
     t.integer "b_score"
     t.integer "g_score"
     t.integer "color_id"
-    t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_tests_on_user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -88,7 +86,7 @@ ActiveRecord::Schema.define(version: 2022_12_15_140550) do
     t.string "last_name", default: "", null: false
     t.string "gender", default: "", null: false
     t.date "birthday", null: false
-    t.integer "color_id"
+    t.bigint "test_id"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -96,7 +94,8 @@ ActiveRecord::Schema.define(version: 2022_12_15_140550) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["test_id"], name: "index_users_on_test_id"
   end
 
-  add_foreign_key "tests", "users"
+  add_foreign_key "users", "tests"
 end
