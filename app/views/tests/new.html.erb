@@ -38,7 +38,7 @@
                 <tr class="item_description">
                   <th><%= Item.find(i).name %></th>
                   <td class="button", id=<%= i %> data-val = 6>
-                    <%= f.radio_button "item#{i}", 6, {:checked => true} %>
+                    <%= f.radio_button "item#{i}", 6 %>
                   </td>
                   <td class="button", id=<%= i %> data-val = 4>
                     <%= f.radio_button "item#{i}", 4 %>
@@ -85,7 +85,7 @@
                 A: <%= Item.find(nums.at(0)).name %>
               </td>
               <td class="a_button", id=<%= nums.at(0) %> data-val = 4>
-                <%= f.radio_button "item#{nums.at(0)}", 4, {:checked => true} %>
+                <%= f.radio_button "item#{nums.at(0)}", 4 %>
               </td>
               <td class="a_button", id=<%= nums.at(0) %> data-val = 3>
                 <%= f.radio_button "item#{nums.at(0)}", 3 %>
@@ -145,5 +145,4 @@
   </div>
 
 </body>
-<%= render 'shared/error_messages', model: @test %>
 <%= render "shared/footer" %>

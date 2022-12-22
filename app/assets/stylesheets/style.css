@@ -161,6 +161,74 @@ body{
   padding: 20px 15px 100px;
 }
 /********************* フッター部分 *********************/
+/********************* トップページ *********************/
+.top_page_title-contents{
+  padding: 60px 30px;
+  background-color: #fff;
+  font-size: 3.5em;
+  color: #76787c;
+  line-height: 1.4;
+  text-align: center;
+  font-family: 'Open Sans', sans-serif;
+  border: none;
+}
+
+.top_page_title-contents p{
+  margin: 30px 0;
+}
+
+.top_page_bottom {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 15px 0 90px;
+  width: 100%;
+}
+
+.top_page_btn {
+  font-size: 20px;
+  height: 80px;
+  padding: 19px 50px;
+  background-color: #bcbec2;
+  border-color: #bcbec2;
+  border-radius: 40px;
+  align-items: center;
+  border: 1px solid transparent;
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: var(--font-family-text);
+  font-weight: var(--font-btn-font-weight);
+  justify-content: center;
+  line-height: 2;
+  width: 280px;
+}
+
+.top_page_btn a {
+  color: #fff;
+  white-space: nowrap;
+}
+
+.top_page_btn:hover {
+  font-size: 20px;
+  height: 80px;
+  padding: 19px 50px;
+  background-color: #94969a;
+  border-color: #94969a;
+  border-radius: 40px;
+  align-items: center;
+  border: 1px solid transparent;
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: var(--font-family-text);
+  font-weight: var(--font-btn-font-weight);
+  justify-content: center;
+  line-height: 2;
+  width: 280px;
+}
+/********************* トップページ *********************/
 /********************* タイトル部分 *********************/
 .title-contents{
   padding: 60px 30px;

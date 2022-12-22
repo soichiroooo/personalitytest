@@ -5,8 +5,9 @@
   </div>
   <div class='header_middle'>
     <ul class='lists'>
-      <li><%= link_to '性格診断テスト', "/", class: "list" %></li>
+      <li><%= link_to '性格診断テスト', new_tests_path, class: "list" %></li>
       <li><%= link_to '性格タイプ', color_tests_path, class: "list" %></li>
+      <li><%= link_to '他のユーザーの結果を見る', analysis_tests_path, class: "list" %></li>
     </ul>
   </div>
   <div class='header_right'>

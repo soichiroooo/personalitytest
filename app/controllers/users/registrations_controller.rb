@@ -62,18 +62,26 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def new
     @user = User.new
+    session[:previous_url] = request.referer
   end
 
   def create
     @user = User.new(user_params)
-    if session[:test] != nil
+    if session[:test].present?
       @test = Test.create(session[:test])
-      @user.color_id = @test.color_id
+      @user.test_id = @test.id
       if @user.save
-        redirect_to root_path
+        session[:test].clear
+        sign_in(:user, @user)
+        redirect_to session[:previous_url]
       else
         render :new
       end
+    elsif @user.save
+      sign_in(:user, @user)
+      redirect_to root_path
+    else
+      render :new
     end
   end
 
@@ -83,6 +91,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
     params.require(:user).permit(:nickname, :email, :password,
                                  :password_confirmation,
                                  :first_name, :last_name, :gender,
-                                 :birthday, :color_id )
+                                 :birthday)
   end
 end
