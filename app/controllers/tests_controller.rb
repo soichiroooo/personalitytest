@@ -27,6 +27,7 @@ class TestsController < ApplicationController
         @user.save
         redirect_to tests_path(@test.id)
       else
+        flash.now[:alert] = 'メッセージを入力してください。'
         render :new
       end
     else

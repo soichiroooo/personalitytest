@@ -14,21 +14,6 @@
     <span id="g_length">
       <%= @g_users.length %>
     </span>
-    <span id="r_users">
-      <% @r_users.each_with_index do |g_user, userId| %>
-        <span class="r_users", data-userId=<%= userId %> ><%= r_user.nickname %></span>
-      <% end %>
-    </span>
-    <span id="y_users">
-      <% @y_users.each_with_index do |g_user,userId| %>
-        <span class="y_users", data-userId=<%= userId %> ><%= y_user.nickname %></span>
-      <% end %>
-    </span>
-    <span id="b_users">
-      <% @b_users.each_with_index do |g_user,userId| %>
-        <span class="b_users", data-userId=<%= userId %> ><%= b_user.nickname %></span>
-      <% end %>
-    </span>
     <span id="g_users">
       <% @g_users.each_with_index do |g_user| %>
         <span class="g_users", data-userId=<%= g_user.attributes["test_id"] %> >
