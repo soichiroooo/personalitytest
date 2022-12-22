@@ -1,7 +1,7 @@
 <%= render "shared/header" %>
 <body>
 <%# 診断結果のパラメーターを持たせる非表示部分 %>
-  <div>
+  <div hidden>
     <span id="r_length">
       <%= @r_users.length %>
     </span>
@@ -15,24 +15,43 @@
       <%= @g_users.length %>
     </span>
     <span id="r_users">
-      <% @r_users.each_with_index do |g_user,i| %>
-        <span class="r_users", data-i=<%= i %> ><%= r_user.nickname %></span>
+      <% @r_users.each_with_index do |g_user, userId| %>
+        <span class="r_users", data-userId=<%= userId %> ><%= r_user.nickname %></span>
       <% end %>
     </span>
-    <span id="y_length">
-      <% @y_users.each_with_index do |g_user,i| %>
-        <span class="y_users", data-i=<%= i %> ><%= y_user.nickname %></span>
+    <span id="y_users">
+      <% @y_users.each_with_index do |g_user,userId| %>
+        <span class="y_users", data-userId=<%= userId %> ><%= y_user.nickname %></span>
       <% end %>
     </span>
-    <span id="b_length">
-      <% @b_users.each_with_index do |g_user,i| %>
-        <span class="b_users", data-i=<%= i %> ><%= b_user.nickname %></span>
+    <span id="b_users">
+      <% @b_users.each_with_index do |g_user,userId| %>
+        <span class="b_users", data-userId=<%= userId %> ><%= b_user.nickname %></span>
       <% end %>
     </span>
-    <span id="g_length">
-      <% @g_users.each_with_index do |g_user,i| %>
-        <span class="g_users", data-i=<%= i %> ><%= g_user.nickname %></span>
+    <span id="g_users">
+      <% @g_users.each_with_index do |g_user| %>
+        <span class="g_users", data-userId=<%= g_user.attributes["test_id"] %> >
+          <% g_user_score={
+          r_score: @tests.find(g_user.attributes["test_id"]).attributes["r_score"],
+          y_score: @tests.find(g_user.attributes["test_id"]).attributes["y_score"],
+          b_score: @tests.find(g_user.attributes["test_id"]).attributes["b_score"],
+          g_score: @tests.find(g_user.attributes["test_id"]).attributes["g_score"]} %>
+        </span>
       <% end %>
+    </span>
+    <% users_hash = {} %>
+    <% @users.each_with_index do |user| %>
+        <span class="users", data-userId=<%= user.attributes["test_id"] %> >
+          <%= users_hash["#{user.attributes["id"]}"] = {
+          r_score: @tests.find(user.attributes["test_id"]).attributes["r_score"],
+          y_score: @tests.find(user.attributes["test_id"]).attributes["y_score"],
+          b_score: @tests.find(user.attributes["test_id"]).attributes["b_score"],
+          g_score: @tests.find(user.attributes["test_id"]).attributes["g_score"]} %>
+        </span>
+      <% end %>
+    <span id="users_hash">
+      <%= users_hash %>
     </span>
   </div>
 <%# /診断結果のパラメーターを持たせる非表示部分 %>
@@ -41,12 +60,16 @@
     <div class="result-statement">
       他のユーザーの診断結果はこちら
     </div>
+    <%# 円グラフ %>
     <div class="box">
       <canvas id="myPieChart" width="400" height="400"></canvas>
     </div>
+    <%# /円グラフ %>
+    <%# 散布図 %>
     <div class="box">
       <canvas id="myScatterChart" width="400" height="400"></canvas>
     </div>
+    <%# /散布図 %>
   </div>
 <%# /診断結果 %>
 <%# 他のユーザーの結果を見るボタン %>
@@ -56,7 +79,6 @@
 <%# Chart.js %>
 <script>
     var ctx = document.getElementById('myPieChart').getContext('2d');
-    console.log(ctx)
     const rLength = document.getElementById("r_length").innerHTML
     const yLength = document.getElementById("y_length").innerHTML
     const bLength = document.getElementById("b_length").innerHTML
@@ -96,14 +118,16 @@
         }
     });
 
-        var myScatterChart = new Chart(ctx, {
+    const usersHash = document.getElementById("users_hash").innerHTML
+    console.log(usersHash["1"])
+    var myScatterChart = new Chart(ctx, {
       type: 'Scatter',
       data: {
-        labels: ['Red', 'Yellow', 'Blue', 'Green'],
+        labels: ['Red↔︎Yellow', 'Blue↔︎Green'],
         datasets: [
           {
             label: '他のユーザーの診断結果',
-            data: [ `${rLength}` , `${yLength}` , `${bLength}` , `${gLength}` ],
+            data: [ `${rLength}` , `${bLength}` ],
             fill: true,
             backgroundColor: [ CHART_COLORS.red, CHART_COLORS.yellow, CHART_COLORS.blue, CHART_COLORS.green ]
           }

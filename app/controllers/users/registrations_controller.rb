@@ -67,7 +67,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def create
     @user = User.new(user_params)
-    if !session[:test].nil?
+    if session[:test].present?
       @test = Test.create(session[:test])
       @user.test_id = @test.id
       if @user.save

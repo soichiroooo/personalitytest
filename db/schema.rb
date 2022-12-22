@@ -13,67 +13,67 @@
 ActiveRecord::Schema.define(version: 2022_12_15_140550) do
 
   create_table "tests", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "item1"
-    t.integer "item2"
-    t.integer "item3"
-    t.integer "item4"
-    t.integer "item5"
-    t.integer "item6"
-    t.integer "item7"
-    t.integer "item8"
-    t.integer "item9"
-    t.integer "item10"
-    t.integer "item11"
-    t.integer "item12"
-    t.integer "item13"
-    t.integer "item14"
-    t.integer "item15"
-    t.integer "item16"
-    t.integer "item17"
-    t.integer "item18"
-    t.integer "item19"
-    t.integer "item20"
-    t.integer "item21"
-    t.integer "item22"
-    t.integer "item23"
-    t.integer "item24"
-    t.integer "item25"
-    t.integer "item26"
-    t.integer "item27"
-    t.integer "item28"
-    t.integer "item29"
-    t.integer "item30"
-    t.integer "item31"
-    t.integer "item32"
-    t.integer "item33"
-    t.integer "item34"
-    t.integer "item35"
-    t.integer "item36"
-    t.integer "item37"
-    t.integer "item38"
-    t.integer "item39"
-    t.integer "item40"
-    t.integer "item41"
-    t.integer "item42"
-    t.integer "item43"
-    t.integer "item44"
-    t.integer "item45"
-    t.integer "item46"
-    t.integer "item47"
-    t.integer "item48"
-    t.integer "item49"
-    t.integer "item50"
-    t.integer "item51"
-    t.integer "item52"
-    t.integer "item53"
-    t.integer "item54"
-    t.integer "item55"
-    t.integer "item56"
-    t.integer "r_score"
-    t.integer "y_score"
-    t.integer "b_score"
-    t.integer "g_score"
-    t.integer "color_id"
+    t.integer "item1", null: false
+    t.integer "item2", null: false
+    t.integer "item3", null: false
+    t.integer "item4", null: false
+    t.integer "item5", null: false
+    t.integer "item6", null: false
+    t.integer "item7", null: false
+    t.integer "item8", null: false
+    t.integer "item9", null: false
+    t.integer "item10", null: false
+    t.integer "item11", null: false
+    t.integer "item12", null: false
+    t.integer "item13", null: false
+    t.integer "item14", null: false
+    t.integer "item15", null: false
+    t.integer "item16", null: false
+    t.integer "item17", null: false
+    t.integer "item18", null: false
+    t.integer "item19", null: false
+    t.integer "item20", null: false
+    t.integer "item21", null: false
+    t.integer "item22", null: false
+    t.integer "item23", null: false
+    t.integer "item24", null: false
+    t.integer "item25", null: false
+    t.integer "item26", null: false
+    t.integer "item27", null: false
+    t.integer "item28", null: false
+    t.integer "item29", null: false
+    t.integer "item30", null: false
+    t.integer "item31", null: false
+    t.integer "item32", null: false
+    t.integer "item33", null: false
+    t.integer "item34", null: false
+    t.integer "item35", null: false
+    t.integer "item36", null: false
+    t.integer "item37", null: false
+    t.integer "item38", null: false
+    t.integer "item39", null: false
+    t.integer "item40", null: false
+    t.integer "item41", null: false
+    t.integer "item42", null: false
+    t.integer "item43", null: false
+    t.integer "item44", null: false
+    t.integer "item45", null: false
+    t.integer "item46", null: false
+    t.integer "item47", null: false
+    t.integer "item48", null: false
+    t.integer "item49", null: false
+    t.integer "item50", null: false
+    t.integer "item51", null: false
+    t.integer "item52", null: false
+    t.integer "item53", null: false
+    t.integer "item54", null: false
+    t.integer "item55", null: false
+    t.integer "item56", null: false
+    t.integer "r_score", null: false
+    t.integer "y_score", null: false
+    t.integer "b_score", null: false
+    t.integer "g_score", null: false
+    t.integer "color_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

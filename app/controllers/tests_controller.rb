@@ -10,7 +10,7 @@ class TestsController < ApplicationController
 
   def show
     @test = if user_signed_in?
-              Test.find(current_user.id)
+              Test.find(User.find(current_user.id).test_id) || Test.new(session[:test])
             else
               Test.new(session[:test])
             end
@@ -31,11 +31,8 @@ class TestsController < ApplicationController
       end
     else
       @test = Test.new(test_params)
-      session[:user] = if user_signed_in?
-                         current_user
-                       else
-                         User.new
-                       end
+      session[:user] = current_user if user_signed_in?
+                       User.new
       judge_color
       session[:test] = @test
       redirect_to tests_path
@@ -43,11 +40,21 @@ class TestsController < ApplicationController
   end
 
   def analysis
+    @tests = Test.all
     @users = User.all
-    @r_users = User.where(color_id: '1')
-    @y_users = User.where(color_id: '2')
-    @b_users = User.where(color_id: '3')
-    @g_users = User.where(color_id: '4')
+    @r_users = User.where(test_id: Test.where(color_id: '1').ids)
+    @y_users = User.where(test_id: Test.where(color_id: '2').ids)
+    @b_users = User.where(test_id: Test.where(color_id: '3').ids)
+    @g_users = User.where(test_id: Test.where(color_id: '4').ids)
+    # user_arr = []
+    # users_hash = {}
+    # @users.each do |user|
+    #   user_arr <<
+    #   r_score: @tests.find(user.attributes["test_id"]).attributes["r_score"],
+    #   y_score: @tests.find(user.attributes["test_id"]).attributes["y_score"],
+    #   b_score: @tests.find(user.attributes["test_id"]).attributes["b_score"],
+    #   g_score: @tests.find(user.attributes["test_id"]).attributes["g_score"]
+    # end
   end
 
   private

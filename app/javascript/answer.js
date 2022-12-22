@@ -32,7 +32,6 @@ window.addEventListener('load', function(){
 // 後半のテストで重複を許さないための記述
   const aButtons = document.querySelectorAll(".a_button");
   const bButtons = document.querySelectorAll(".b_button");
-
   aButtons.forEach(function(aButton){
     aButton.addEventListener('click', function(){
       const aValue = this.dataset.val;
