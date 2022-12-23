@@ -26,31 +26,33 @@
     </div>
     <%= @user.nickname %>
   </div>
-  <div class="form-group">
-    <div class='form-text-wrap'>
-      <label class="form-text">メールアドレス</label>
+  <% if @user==current_user %>
+    <div class="form-group">
+      <div class='form-text-wrap'>
+        <label class="form-text">メールアドレス</label>
+      </div>
+      <%= @user.email %>
     </div>
-    <%= @user.email %>
-  </div>
-  <div class="form-group">
-    <div class='form-text-wrap'>
-      <label class="form-text">お名前(全角)</label>
+    <div class="form-group">
+      <div class='form-text-wrap'>
+        <label class="form-text">お名前(全角)</label>
+      </div>
+        <%= @user.last_name%>
+        <%= @user.first_name%>
     </div>
-      <%= @user.last_name%>
-      <%= @user.first_name%>
-  </div>
-  <div class="form-group">
-    <div class='form-text-wrap'>
-      <label class="form-text">性別</label>
+    <div class="form-group">
+      <div class='form-text-wrap'>
+        <label class="form-text">性別</label>
+      </div>
+        <%= @user.gender%>
     </div>
-      <%= @user.gender%>
-  </div>
-  <div class="form-group">
-    <div class='form-text-wrap'>
-      <label class="form-text">生年月日</label>
+    <div class="form-group">
+      <div class='form-text-wrap'>
+        <label class="form-text">生年月日</label>
+      </div>
+        <%= @user.birthday %>
     </div>
-      <%= @user.birthday %>
-  </div>
+  <% end %>
   <div class="form-group">
     <div class='form-text-wrap'>
       <label class="form-text">性格タイプ</label>
