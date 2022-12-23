@@ -26,6 +26,13 @@
       <canvas id="myPieChart" width="400" height="400"></canvas>
     </div>
     <%# /円グラフ %>
+    <%# ユーザーの結果表示 %>
+    <div class="form-group">
+      <% @users.each do |user| %>
+        <div class='form-text-wrap'><%= link_to user.nickname, user_path(user.id) %></div>
+      <% end %>
+    </div>
+    <%# /ユーザーの結果表示 %>
     <%# 散布図 %>
     <div class="box">
       <canvas id="myScatterChart" width="400" height="400"></canvas>
