@@ -14,30 +14,6 @@
     <span id="g_length">
       <%= @g_users.length %>
     </span>
-    <span id="g_users">
-      <% @g_users.each_with_index do |g_user| %>
-        <span class="g_users", data-userId=<%= g_user.attributes["test_id"] %> >
-          <% g_user_score={
-          r_score: @tests.find(g_user.attributes["test_id"]).attributes["r_score"],
-          y_score: @tests.find(g_user.attributes["test_id"]).attributes["y_score"],
-          b_score: @tests.find(g_user.attributes["test_id"]).attributes["b_score"],
-          g_score: @tests.find(g_user.attributes["test_id"]).attributes["g_score"]} %>
-        </span>
-      <% end %>
-    </span>
-    <% users_hash = {} %>
-    <% @users.each_with_index do |user| %>
-        <span class="users", data-userId=<%= user.attributes["test_id"] %> >
-          <%= users_hash["#{user.attributes["id"]}"] = {
-          r_score: @tests.find(user.attributes["test_id"]).attributes["r_score"],
-          y_score: @tests.find(user.attributes["test_id"]).attributes["y_score"],
-          b_score: @tests.find(user.attributes["test_id"]).attributes["b_score"],
-          g_score: @tests.find(user.attributes["test_id"]).attributes["g_score"]} %>
-        </span>
-      <% end %>
-    <span id="users_hash">
-      <%= users_hash %>
-    </span>
   </div>
 <%# /診断結果のパラメーターを持たせる非表示部分 %>
 <%# 診断結果 %>
