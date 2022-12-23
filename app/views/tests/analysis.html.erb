@@ -29,7 +29,9 @@
     <%# ユーザーの結果表示 %>
     <div class="form-group">
       <% @users.each do |user| %>
-        <div class='form-text-wrap'><%= link_to user.nickname, user_path(user.id) %></div>
+        <% if user.test_id %>
+          <div class='form-text-wrap'><%= link_to user.nickname, user_path(user.id) %></div>
+        <% end %>
       <% end %>
     </div>
     <%# /ユーザーの結果表示 %>
