@@ -9,4 +9,5 @@ Rails.application.routes.draw do
       get 'analysis'
     end
   end
+  resources :users, only: :show
 end
