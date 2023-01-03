@@ -451,9 +451,9 @@ input[type="submit"]:hover {
   font-size: 50px;
 }
 
-/* .result-statement span{
+.result-statement span{
   color: var(--my-color);
-} */
+}
 
 .color-explanation {
   align-items: center;
@@ -639,6 +639,7 @@ input[type="submit"]:hover {
   margin: 50px auto 0;
   text-align: center;
 }
+
 /********************* ユーザー管理機能 *********************/
 /********************* 他のユーザーの結果も見るボタン *********************/
 /* .look_btn {
