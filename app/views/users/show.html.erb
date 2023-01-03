@@ -93,16 +93,14 @@
 <% end %>
 <%# 他のユーザーの結果を見るボタン %>
 <div class="show_page_bottom">
-  <% if user_signed_in? %>
+  <% if @test==nil %>
+    <div class="look_btn">
+      <%= link_to "性格診断テストを受ける", new_tests_path %>
+    </div>
+  <% else %>
     <div class="look_btn">
       <%= link_to '他のユーザーの結果を見る', analysis_tests_path %>
     </div>
-  <% else %>
-    <%= form_with model:@test, url: new_user_registration_path, method: :get, id: 'test-form', local: true do |f| %>
-      <div class="send_btn">
-        <%= f.submit "他のユーザーの結果を見る" %>
-      </div>
-    <% end %>
   <% end %>
 </div>
 <%# 他のユーザーの結果を見るボタン %>
