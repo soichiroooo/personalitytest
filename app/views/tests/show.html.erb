@@ -52,9 +52,12 @@
   <% else %>
     <%= form_with model:@test, url: new_user_registration_path, method: :get, id: 'test-form', local: true do |f| %>
       <div class="send_btn">
-        <%= f.submit "他のユーザーの結果を見る" %>
+        <%= f.submit "ユーザー登録する" %>
       </div>
     <% end %>
+    <div class="look_btn">
+      <%= link_to '他のユーザーの結果を見る', analysis_tests_path %>
+    </div>
   <% end %>
 </div>
 <%# 他のユーザーの結果を見るボタン %>

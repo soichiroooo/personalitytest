@@ -1,21 +1,5 @@
 <%= render "shared/header" %>
 <body>
-<%# 診断結果のパラメーターを持たせる非表示部分 %>
-  <div hidden>
-    <span id="r_length">
-      <%= @r_users.length %>
-    </span>
-    <span id="y_length">
-      <%= @y_users.length %>
-    </span>
-    <span id="b_length">
-      <%= @b_users.length %>
-    </span>
-    <span id="g_length">
-      <%= @g_users.length %>
-    </span>
-  </div>
-<%# /診断結果のパラメーターを持たせる非表示部分 %>
 <%# 診断結果 %>
   <div class="result">
     <div class="result-statement">
@@ -30,11 +14,29 @@
     <div class="form-group">
       <% @users.each do |user| %>
         <% if user.test_id %>
-          <div class='form-text-wrap'><%= link_to user.nickname, user_path(user.id) %></div>
+          <span>
+            <div class='form-text-wrap'><%= link_to user.nickname, user_path(user.id) %></div>
+          </span>
         <% end %>
       <% end %>
     </div>
     <%# /ユーザーの結果表示 %>
+    <%# 男性ユーザーの円グラフ %>
+    <div class="result-statement">
+      男性ユーザーの診断結果はこちら
+    </div>
+    <div class="box">
+      <canvas id="myPieChartM" width="200" height="200"></canvas>
+    </div>
+    <%# /男性ユーザーの円グラフ %>
+    <%# 女性ユーザーの円グラフ %>
+    <div class="result-statement">
+      女性ユーザーの診断結果はこちら
+    </div>
+    <div class="box">
+      <canvas id="myPieChartF" width="200" height="200"></canvas>
+    </div>
+    <%# /女性ユーザーの円グラフ %>
     <%# 散布図 %>
     <div class="box">
       <canvas id="myScatterChart" width="400" height="400"></canvas>
@@ -46,6 +48,46 @@
 </body>
 <%= render "shared/footer" %>
 
+<%# 診断結果のパラメーターを持たせる非表示部分 %>
+  <div hidden>
+    <span id="r_length">
+      <%= @r_users.length %>
+    </span>
+    <span id="y_length">
+      <%= @y_users.length %>
+    </span>
+    <span id="b_length">
+      <%= @b_users.length %>
+    </span>
+    <span id="g_length">
+      <%= @g_users.length %>
+    </span>
+    <span id="r_m_length">
+      <%= @r_users_m.length %>
+    </span>
+    <span id="y_m_length">
+      <%= @y_users_m.length %>
+    </span>
+    <span id="b_m_length">
+      <%= @b_users_m.length %>
+    </span>
+    <span id="g_m_length">
+      <%= @g_users_m.length %>
+    </span>
+    <span id="r_f_length">
+      <%= @r_users_f.length %>
+    </span>
+    <span id="y_f_length">
+      <%= @y_users_f.length %>
+    </span>
+    <span id="b_f_length">
+      <%= @b_users_f.length %>
+    </span>
+    <span id="g_f_length">
+      <%= @g_users_f.length %>
+    </span>
+  </div>
+<%# /診断結果のパラメーターを持たせる非表示部分 %>
 <%# Chart.js %>
 <script>
     var ctx = document.getElementById('myPieChart').getContext('2d');
@@ -71,6 +113,68 @@
           {
             label: '他のユーザーの診断結果',
             data: [ `${rLength}` , `${yLength}` , `${bLength}` , `${gLength}` ],
+            fill: true,
+            backgroundColor: [ CHART_COLORS.red, CHART_COLORS.yellow, CHART_COLORS.blue, CHART_COLORS.green ]
+          }
+        ]
+      },  
+      options: {
+        responsive: true,
+        elements: {
+          line: {
+            borderWidth: 3
+          }
+        },
+        scale: {
+          }
+        }
+    });
+
+    var ctx = document.getElementById('myPieChartM').getContext('2d');
+    const rLengthM = document.getElementById("r_m_length").innerHTML
+    const yLengthM = document.getElementById("y_m_length").innerHTML
+    const bLengthM = document.getElementById("b_m_length").innerHTML
+    const gLengthM = document.getElementById("g_m_length").innerHTML
+
+    var myPieChartM = new Chart(ctx, {
+      type: 'pie',
+      data: {
+        labels: ['Red', 'Yellow', 'Blue', 'Green'],
+        datasets: [
+          {
+            label: '男性ユーザーの診断結果',
+            data: [ `${rLengthM}` , `${yLengthM}` , `${bLengthM}` , `${gLengthM}` ],
+            fill: true,
+            backgroundColor: [ CHART_COLORS.red, CHART_COLORS.yellow, CHART_COLORS.blue, CHART_COLORS.green ]
+          }
+        ]
+      },  
+      options: {
+        responsive: true,
+        elements: {
+          line: {
+            borderWidth: 3
+          }
+        },
+        scale: {
+          }
+        }
+    });
+
+    var ctx = document.getElementById('myPieChartF').getContext('2d');
+    const rLengthF = document.getElementById("r_f_length").innerHTML
+    const yLengthF = document.getElementById("y_f_length").innerHTML
+    const bLengthF = document.getElementById("b_f_length").innerHTML
+    const gLengthF = document.getElementById("g_f_length").innerHTML
+
+    var myPieChartM = new Chart(ctx, {
+      type: 'pie',
+      data: {
+        labels: ['Red', 'Yellow', 'Blue', 'Green'],
+        datasets: [
+          {
+            label: '女性ユーザーの診断結果',
+            data: [ `${rLengthF}` , `${yLengthF}` , `${bLengthF}` , `${gLengthF}` ],
             fill: true,
             backgroundColor: [ CHART_COLORS.red, CHART_COLORS.yellow, CHART_COLORS.blue, CHART_COLORS.green ]
           }

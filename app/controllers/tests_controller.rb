@@ -46,6 +46,14 @@ class TestsController < ApplicationController
     @y_users = User.where(test_id: Test.where(color_id: '2').ids)
     @b_users = User.where(test_id: Test.where(color_id: '3').ids)
     @g_users = User.where(test_id: Test.where(color_id: '4').ids)
+    @r_users_m = User.where(test_id: Test.where(color_id: '1').ids, gender: "男性")
+    @y_users_m = User.where(test_id: Test.where(color_id: '2').ids, gender: "男性")
+    @b_users_m = User.where(test_id: Test.where(color_id: '3').ids, gender: "男性")
+    @g_users_m = User.where(test_id: Test.where(color_id: '4').ids, gender: "男性")
+    @r_users_f = User.where(test_id: Test.where(color_id: '1').ids, gender: "女性")
+    @y_users_f = User.where(test_id: Test.where(color_id: '2').ids, gender: "女性")
+    @b_users_f = User.where(test_id: Test.where(color_id: '3').ids, gender: "女性")
+    @g_users_f = User.where(test_id: Test.where(color_id: '4').ids, gender: "女性")
     # user_arr = []
     # users_hash = {}
     # @users.each do |user|
