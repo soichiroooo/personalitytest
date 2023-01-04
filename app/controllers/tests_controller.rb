@@ -55,15 +55,32 @@ class TestsController < ApplicationController
     @b_users_f = User.where(test_id: Test.where(color_id: '3').ids, gender: "女性")
     @g_users_f = User.where(test_id: Test.where(color_id: '4').ids, gender: "女性")
 
-    # user_arr = []
-    # users_hash = {}
-    # @users.each do |user|
-    #   user_arr <<
-    #   r_score: @tests.find(user.attributes["test_id"]).attributes["r_score"],
-    #   y_score: @tests.find(user.attributes["test_id"]).attributes["y_score"],
-    #   b_score: @tests.find(user.attributes["test_id"]).attributes["b_score"],
-    #   g_score: @tests.find(user.attributes["test_id"]).attributes["g_score"]
-    # end
+    user_arr = []
+    @users.each do |user|
+      if user.test_id
+        r_score = @tests.find(user.attributes["test_id"]).attributes["r_score"]
+        y_score = @tests.find(user.attributes["test_id"]).attributes["y_score"]
+        b_score= @tests.find(user.attributes["test_id"]).attributes["b_score"]
+        g_score= @tests.find(user.attributes["test_id"]).attributes["g_score"]
+        if r_score > b_score
+          y = r_score
+        else
+          y = -b_score
+        end
+        if y_score > g_score
+          x = y_score
+        else
+          x = -g_score
+        end
+        user_hash = {}
+        user_hash["id"] = user.id
+        user_hash["x"] = x
+        user_hash["y"] = y
+        user_arr << user_hash
+      end
+    end
+    users_arr = [0,1,2]
+    users_hash = {id: 1,}
   end
 
   private
