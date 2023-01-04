@@ -2,14 +2,38 @@
 <body>
 <%# 診断結果 %>
   <div class="result">
-    <div class="result-statement">
-      他のユーザーの診断結果はこちら
+    <div>
+      <div>
+        全ユーザーの診断結果はこちら
+      </div>
+      <%# 円グラフ %>
+      <div class="box">
+        <canvas id="myPieChart" width="400" height="400"></canvas>
+      </div>
+      <%# /円グラフ %>
     </div>
-    <%# 円グラフ %>
-    <div class="box">
-      <canvas id="myPieChart" width="400" height="400"></canvas>
+    <div class="charts">
+      <%# 男性ユーザーの円グラフ %>
+      <div>
+        <div>
+          男性ユーザーの診断結果はこちら
+        </div>
+        <div class="box">
+          <canvas id="myPieChartM" width="200" height="200"></canvas>
+        </div>
+      </div>
+      <%# /男性ユーザーの円グラフ %>
+      <%# 女性ユーザーの円グラフ %>
+      <div>
+        <div>
+          女性ユーザーの診断結果はこちら
+        </div>
+        <div class="box">
+          <canvas id="myPieChartF" width="200" height="200"></canvas>
+        </div>
+      </div>
+      <%# /女性ユーザーの円グラフ %>
     </div>
-    <%# /円グラフ %>
     <%# ユーザーの結果表示 %>
     <div class="form-group">
       <% @users.each do |user| %>
@@ -21,22 +45,6 @@
       <% end %>
     </div>
     <%# /ユーザーの結果表示 %>
-    <%# 男性ユーザーの円グラフ %>
-    <div class="result-statement">
-      男性ユーザーの診断結果はこちら
-    </div>
-    <div class="box">
-      <canvas id="myPieChartM" width="200" height="200"></canvas>
-    </div>
-    <%# /男性ユーザーの円グラフ %>
-    <%# 女性ユーザーの円グラフ %>
-    <div class="result-statement">
-      女性ユーザーの診断結果はこちら
-    </div>
-    <div class="box">
-      <canvas id="myPieChartF" width="200" height="200"></canvas>
-    </div>
-    <%# /女性ユーザーの円グラフ %>
     <%# 散布図 %>
     <div class="box">
       <canvas id="myScatterChart" width="400" height="400"></canvas>
@@ -124,10 +132,8 @@
           line: {
             borderWidth: 3
           }
-        },
-        scale: {
-          }
         }
+      }
     });
 
     var ctx = document.getElementById('myPieChartM').getContext('2d');
@@ -155,10 +161,8 @@
           line: {
             borderWidth: 3
           }
-        },
-        scale: {
-          }
         }
+      }
     });
 
     var ctx = document.getElementById('myPieChartF').getContext('2d');
@@ -186,10 +190,8 @@
           line: {
             borderWidth: 3
           }
-        },
-        scale: {
-          }
         }
+      }
     });
 
     const usersHash = document.getElementById("users_hash").innerHTML
@@ -213,10 +215,8 @@
           line: {
             borderWidth: 3
           }
-        },
-        scale: {
-          }
         }
+      }
     });
   </script>
   <%# /Chart.js %>

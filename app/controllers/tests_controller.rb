@@ -54,6 +54,7 @@ class TestsController < ApplicationController
     @y_users_f = User.where(test_id: Test.where(color_id: '2').ids, gender: "女性")
     @b_users_f = User.where(test_id: Test.where(color_id: '3').ids, gender: "女性")
     @g_users_f = User.where(test_id: Test.where(color_id: '4').ids, gender: "女性")
+
     # user_arr = []
     # users_hash = {}
     # @users.each do |user|
