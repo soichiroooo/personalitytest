@@ -11,7 +11,7 @@
 ## 概要
 Personality Testはその名の通り性格診断アプリです。20の質問に答えることで、Red, Blue, Yellow, Greenの４つの性格タイプがそれぞれどの程度の割合で混ざり合っている性格なのかを診断できます。
 
-(https://gyazo.com/17c19ded6e3d56e142b502793a4d8fda)
+[![Image from Gyazo](https://i.gyazo.com/17c19ded6e3d56e142b502793a4d8fda.gif)](https://gyazo.com/17c19ded6e3d56e142b502793a4d8fda)
 
 - URL: [Personality Test](http://35.79.78.137/)
 - ID: admin
