@@ -3,7 +3,8 @@
 
 ## 目次
 - [機能](#機能)
-
+- [開発環境](#開発環境)
+- [主なGem（ライブラリ）](#主なGem（ライブラリ）)
 
 ## 機能
 + 認証
@@ -34,5 +35,4 @@
 + aws-sdk-s3 (AWS, S3)
 
 ## ER図
-
-
+![ER.png](https://github.com/soichiroooo/personalitytest/blob/main/ER.png)
