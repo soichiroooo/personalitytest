@@ -1,6 +1,10 @@
 # Personality Test
 主にスキル向上を目的に、ポートフォリオとして性格診断テスト（Personality Test）を作成しました。
 
+## 目次
+- [機能](#機能)
+
+
 ## 機能
 + 認証
   + ログイン / ログアウト
@@ -21,6 +25,14 @@
 + Git/GitHub
 + Visual Studio Code
 + AWS
-  
+
+## 主なGem（ライブラリ）
++ devise (ユーザー管理機能)
++ rubocop (静的コード解析, コードチェック)
++ capistrano (自動デプロイ)
++ unicorn (アプリケーションサーバー)
++ aws-sdk-s3 (AWS, S3)
+
+## ER図
 
 
