@@ -451,9 +451,9 @@ input[type="submit"]:hover {
   font-size: 50px;
 }
 
-.result-statement span{
+/* .result-statement span{
   color: var(--my-color);
-}
+} */
 
 .color-explanation {
   align-items: center;
@@ -465,6 +465,11 @@ input[type="submit"]:hover {
   padding: 15px;
   width: 100%;
 }
+
+.result-detail {
+  width: 100%;
+}
+
 /********************* 診断結果確認 *********************/
 /********************* ユーザー管理機能 *********************/
 
