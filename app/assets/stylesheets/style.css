@@ -451,9 +451,9 @@ input[type="submit"]:hover {
   font-size: 50px;
 }
 
-/* .result-statement span{
+.result-statement span{
   color: var(--my-color);
-} */
+}
 
 .color-explanation {
   align-items: center;
